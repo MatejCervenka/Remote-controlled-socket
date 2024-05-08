@@ -7,7 +7,7 @@ const gpio = require('rpi-gpio');
 // GPIO pin connected to your relay
 const relayPin = 17; // For example, GPIO pin 17
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", function(req, res){
     res.sendFile(path.join(__dirname,'views','index.html'));
@@ -49,6 +49,10 @@ app.get('/off', (req, res) => {
         res.sendStatus(200); // Send HTTP status 200 (OK)
     });
 });
+
+app.get('/info', (req, res) => {
+    res.sendFile(path.join(__dirname,'views','info.html'));
+})
 
 // Start the server
 app.listen(port, () => {
