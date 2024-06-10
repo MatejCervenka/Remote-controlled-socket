@@ -15,12 +15,7 @@ void setup() {
     pinMode(relayPin, OUTPUT);
     digitalWrite(relayPin, LOW); // Zajisti, že relé je vypnuté při startu
 
-    Serial.println("Begin connecting");
-
     WiFi.begin(ssid, password);
-
-    Serial.println("Begining successful");
-
     while (WiFi.status() != WL_CONNECTED) {
         delay(1000);
         Serial.println("Connecting to WiFi..");
